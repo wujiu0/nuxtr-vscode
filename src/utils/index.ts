@@ -16,6 +16,7 @@ export {
     getNuxtVersion,
     hasServerDir,
     isModuleConfigured,
+    isNuxt4,
     isNuxtProject,
     isNuxtTwo,
     removeNuxtModule,

@@ -111,6 +111,30 @@ export const getCommandType = async (commandType: string) => {
             };
             break;
         }
+        case 'shared': {
+            type = {
+                name: 'Shared',
+                path: 'shared',
+                extension: '.ts',
+            };
+            break;
+        }
+        case 'sharedUtils': {
+            type = {
+                name: 'Shared Utils',
+                path: 'shared/utils',
+                extension: '.ts',
+            };
+            break;
+        }
+        case 'sharedTypes': {
+            type = {
+                name: 'Shared Types',
+                path: 'shared/types',
+                extension: '.d.ts',
+            };
+            break;
+        }
         default: {
             // show error message
             type = {

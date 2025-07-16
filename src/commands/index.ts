@@ -15,6 +15,7 @@ import { nuxtAnalyze, nuxtBuild, nuxtCleanUp, nuxtDev, nuxtGenerate, nuxtInfo, n
 import { createPage, directCreatePage } from './page'
 import { createPlugin, directCreatePlugin } from './plugin'
 import { createProject } from './project'
+import { createSharedType, createSharedUtil, directCreateSharedType, directCreateSharedUtil } from './shared'
 import { createStore, directCreateStore } from './store'
 import { appConfig, errorLayout, nuxtIgnore, nuxtRC, projectStructure } from './structure'
 import { configurePug } from './templates'
@@ -43,6 +44,10 @@ const commands = {
     createUtil,
     createNitroUtil,
     directCreateUtil,
+    createSharedUtil,
+    createSharedType,
+    directCreateSharedUtil,
+    directCreateSharedType,
     createProject,
     projectStructure,
     openDocumentation,

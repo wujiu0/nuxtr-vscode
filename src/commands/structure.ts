@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync } from 'node:fs'
 import { window } from 'vscode'
 import { appConfigContent } from '../templates'
-import { createFile, generateVueFileTemplate, isNuxtTwo, projectRootDirectory, projectSrcDirectory } from '../utils'
+import { createFile, generateVueFileTemplate, isNuxt4, isNuxtTwo, projectRootDirectory, projectSrcDirectory } from '../utils'
 
 function promptDirectorySelection () {
     let directories = ['components', 'pages', 'assets', 'plugins', 'layouts', 'middleware', 'modules',]
@@ -10,7 +10,18 @@ function promptDirectorySelection () {
 
     const nuxtThreeDirectories = ['public', 'composables', 'server', 'utils', 'stores']
 
-    isNuxtTwo() ? (directories = [...directories, ...nuxtTwoDirectories]) : (directories = [...directories, ...nuxtThreeDirectories])
+    // Nuxt4 特有的目录（在 app/ 下的新目录结构）
+    const nuxt4Directories = ['public', 'composables', 'server', 'utils', 'stores', 'shared']
+
+    if (isNuxtTwo()) {
+        directories = [...directories, ...nuxtTwoDirectories]
+    } else if (isNuxt4()) {
+        // 对于 Nuxt4，大部分目录会在 app/ 下创建
+        directories = [...directories, ...nuxt4Directories]
+    } else {
+        // Nuxt3 默认行为
+        directories = [...directories, ...nuxtThreeDirectories]
+    }
 
     directories.sort()
 
@@ -51,11 +62,19 @@ const projectStructure = () => {
     promptDirectorySelection()
 }
 
-const appConfig = () => {
+const appConfig = async () => {
+    // 对于 Nuxt4，app.config.ts 应该放在 app/ 目录下
+    // 对于其他版本，放在项目根目录
+    const isNuxt4Project = isNuxt4()
+    const filePath =
+        isNuxt4Project && (await projectSrcDirectory()).endsWith('/app')
+            ? `${await projectSrcDirectory()}/app.config.ts`
+            : `${projectRootDirectory()}/app.config.ts`
+
     createFile({
         fileName: 'app.config.ts',
         content: appConfigContent,
-        fullPath: `${projectRootDirectory()}/app.config.ts`,
+        fullPath: filePath,
     })
 }
 

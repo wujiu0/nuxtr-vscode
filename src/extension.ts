@@ -21,6 +21,8 @@ const extensionCommands = [
     { command: 'nuxtr.createNitroRoute', function: nuxtrCommands.createNitroRoute },
     { command: 'nuxtr.createStore', function: nuxtrCommands.createStore },
     { command: 'nuxtr.createUtil', function: nuxtrCommands.createUtil },
+    { command: 'nuxtr.createSharedUtil', function: nuxtrCommands.createSharedUtil },
+    { command: 'nuxtr.createSharedType', function: nuxtrCommands.createSharedType },
     { command: 'nuxtr.projectStructure', function: nuxtrCommands.projectStructure },
     { command: 'nuxtr.openDocumentation', function: nuxtrCommands.openDocumentation },
     { command: 'nuxtr.openModules', function: nuxtrCommands.openModules },
@@ -58,6 +60,8 @@ const extensionCommands = [
     { command: 'nuxtr.directCreateNitroRoute', function: (filePath: Uri) => nuxtrCommands.directCreateNitroRoute(filePath.path) },
     { command: 'nuxtr.directCreateStore', function: (filePath: Uri) => nuxtrCommands.directCreateStore(filePath.path) },
     { command: 'nuxtr.directCreateUtil', function: (filePath: Uri) => nuxtrCommands.directCreateUtil(filePath.path) },
+    { command: 'nuxtr.directCreateSharedUtil', function: (filePath: Uri) => nuxtrCommands.directCreateSharedUtil(filePath.path) },
+    { command: 'nuxtr.directCreateSharedType', function: (filePath: Uri) => nuxtrCommands.directCreateSharedType(filePath.path) },
 ];
 
 export const publicCommands = [

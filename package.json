@@ -148,6 +148,14 @@
           "when": "nuxtr.isNuxtProject"
         },
         {
+          "command": "nuxtr.createSharedUtil",
+          "when": "nuxtr.isNuxtProject"
+        },
+        {
+          "command": "nuxtr.createSharedType",
+          "when": "nuxtr.isNuxtProject"
+        },
+        {
           "command": "nuxtr.createMiddleware",
           "when": "nuxtr.isNuxtProject"
         },
@@ -412,6 +420,16 @@
           "group": "navigation"
         },
         {
+          "command": "nuxtr.directCreateSharedUtil",
+          "when": "( nuxtr.isNuxtProject && resourceFilename =~ /(shared.*utils.*)/) || ( nuxtr.isNuxtProject && resourceDirname =~ /(shared.*utils.*)/ && explorerResourceIsFolder)",
+          "group": "navigation"
+        },
+        {
+          "command": "nuxtr.directCreateSharedType",
+          "when": "( nuxtr.isNuxtProject && resourceFilename =~ /(shared.*types.*)/) || ( nuxtr.isNuxtProject && resourceDirname =~ /(shared.*types.*)/ && explorerResourceIsFolder)",
+          "group": "navigation"
+        },
+        {
           "command": "nuxtr.directCreateComposable",
           "when": "( nuxtr.isNuxtProject && resourceFilename =~ /(composables.*)/) || ( nuxtr.isNuxtProject && resourceDirname =~ /(composables.*)/ && explorerResourceIsFolder)",
           "group": "navigation"
@@ -663,6 +681,18 @@
         "when": "nuxtr.isNuxtProject"
       },
       {
+        "command": "nuxtr.createSharedUtil",
+        "title": "Create new Shared Utility",
+        "category": "Nuxtr",
+        "when": "nuxtr.isNuxtProject"
+      },
+      {
+        "command": "nuxtr.createSharedType",
+        "title": "Create new Shared Type",
+        "category": "Nuxtr",
+        "when": "nuxtr.isNuxtProject"
+      },
+      {
         "command": "nuxtr.createNitroPlugin",
         "title": "Create new Nitro Plugin",
         "category": "Nuxtr",
@@ -683,6 +713,18 @@
       {
         "command": "nuxtr.directCreateUtil",
         "title": "New Utility...",
+        "category": "Nuxtr",
+        "when": "nuxtr.isNuxtProject"
+      },
+      {
+        "command": "nuxtr.directCreateSharedUtil",
+        "title": "New Shared Utility...",
+        "category": "Nuxtr",
+        "when": "nuxtr.isNuxtProject"
+      },
+      {
+        "command": "nuxtr.directCreateSharedType",
+        "title": "New Shared Type...",
         "category": "Nuxtr",
         "when": "nuxtr.isNuxtProject"
       },

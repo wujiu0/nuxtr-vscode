@@ -160,6 +160,12 @@ export const isNuxtTwo = (): boolean | undefined => {
     }
 };
 
+export const isNuxt4 = (): boolean | undefined => {
+    const nuxtVersion = getNuxtVersion()
+    if (typeof nuxtVersion === 'string') {
+        return nuxtVersion.startsWith('4') ? true : false
+    }
+};
 
 export const updateNuxtConfig = (action: 'inject-eslint-devChcker' | 'add-module', input?: string) => {
     try {
